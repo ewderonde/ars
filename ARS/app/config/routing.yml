@@ -1,3 +1,24 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+dashboard:
+    resource: "@AppBundle/Resources/routing/dashboard.yml"
+    prefix: /
+
+coworker:
+    resource: "@AppBundle/Resources/routing/coworker.yml"
+    prefix: /coworkers
+
+event:
+    resource: "@AppBundle/Resources/routing/event.yml"
+    prefix: /events
+
+schedule:
+    resource: "@AppBundle/Resources/routing/schedule.yml"
+    prefix: /schedules
+
+settings:
+    resource: "@AppBundle/Resources/routing/settings.yml"
+    prefix: /settings
+

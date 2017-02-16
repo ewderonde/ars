@@ -4,6 +4,41 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+  # CONTROLLERS
+  app.controller.base:
+    class: AppBundle\Controller\BaseController
+    arguments:
+        - '@templating'
+        - '@session'
+        - '@router'
+        - '@translator'
+        - '@doctrine.orm.entity_manager'
+        - '@request_stack'
+        - '@form.factory'
+
+  app.controller.dashboard:
+    class: AppBundle\Controller\DashboardController
+    parent: app.controller.base
+
+  app.controller.coworker:
+      class: AppBundle\Controller\CoworkerController
+      parent: app.controller.base
+
+  app.controller.event:
+      class: AppBundle\Controller\EventController
+      parent: app.controller.base
+
+  app.controller.schedule:
+      class: AppBundle\Controller\ScheduleController
+      parent: app.controller.base
+
+  app.controller.settings:
+      class: AppBundle\Controller\SettingsController
+      parent: app.controller.base
+
+
+#  # FORM
+#  app.form.error.form_error:
+#          class: AppBundle\Form\Error\FormError
+#          arguments:
+#              - '@translator'

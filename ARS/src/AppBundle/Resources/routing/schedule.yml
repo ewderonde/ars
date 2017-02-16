@@ -1,0 +1,5 @@
+schedule_index:
+    path: /
+    defaults:
+        _controller: app.controller.schedule:indexAction
+

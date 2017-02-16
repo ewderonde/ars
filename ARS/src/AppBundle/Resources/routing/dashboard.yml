@@ -1,0 +1,4 @@
+dashboard_index:
+    path: /
+    defaults:
+        _controller: app.controller.dashboard:indexAction

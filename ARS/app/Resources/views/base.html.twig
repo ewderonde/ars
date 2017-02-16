@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+<head>
+    {# include css files. #}
+    {% include 'includes/header.html.twig' %}
+    {% block styles %}
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+    {# include general Js files. #}
+    {% include 'includes/js.html.twig' %}
+
+    {% block javascripts %}
+    {% endblock %}
+</body>
+

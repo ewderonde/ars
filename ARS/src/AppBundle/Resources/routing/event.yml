@@ -1,0 +1,5 @@
+event_index:
+    path: /
+    defaults:
+        _controller: app.controller.event:indexAction
+

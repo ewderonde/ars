@@ -1,0 +1,5 @@
+settings_index:
+    path: /
+    defaults:
+        _controller: app.controller.settings:indexAction
+
