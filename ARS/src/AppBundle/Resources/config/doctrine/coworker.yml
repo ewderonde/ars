@@ -1,0 +1,21 @@
+AppBundle\Entity\Coworker:
+    type: entity
+
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
+
+        fields:
+            name:
+
+
+        oneToMany:
+            relationBanks:
+                targetEntity: AppBundle\Entity\RelationBank
+                mappedBy: bank
+
+    lifecycleCallbacks: {  }
