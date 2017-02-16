@@ -7,8 +7,17 @@
     {% endblock %}
 </head>
 <body>
-    {% block header %}
-    {% endblock %}
+    <div class="top-bar">
+            <div class="search-bar">
+                    {% block topbar %}
+                            <p>Top bar</p>
+                    {% endblock %}
+            </div>
+            <div >
+                    {% block variablebuttons %}
+                    {% endblock %}
+            </div>
+    </div>
 
     {% block body %}
     {% endblock %}

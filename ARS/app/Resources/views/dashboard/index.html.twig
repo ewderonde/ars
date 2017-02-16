@@ -3,3 +3,11 @@
 {% block body %}
     <h1>{{ test }}</h1>
 {% endblock %}
+
+{% block topbar %}
+    {{ parent() }}
+    <p>Nog een stuk tekst.</p>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
