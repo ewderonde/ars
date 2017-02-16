@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {# include css files. #}
-    {% include 'includes/header.html.twig' %}
+    {# Als je javascript or css specifieke files wilt includen op een pagina, moet je de het block extenden met {{ parent() }} omdat je anders het hele blok overschrijft.
+    {# Anders hoef je dit blok niet aan te spreken in andere templates.#}
+    {# Voorbeeld:  <script src="{{ asset('bundles/js/main.js') }}"></script> voor JS of  <link href="{{ asset('bundles/css/style.css') }}" rel="stylesheet" />#}
+    {# Dit path verwijst naar de /web folder. (/web/bundles/js of css )#}
     {% block styles %}
+        {# include css files. #}
+        {% include 'includes/header.html.twig' %}
     {% endblock %}
 </head>
 <body>

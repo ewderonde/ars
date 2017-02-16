@@ -9,5 +9,8 @@
     <p>Nog een stuk teksPEOPt.</p>
 {% endblock %}
 
+{# Als je javascript of css specifieke files wilt includen op een pagina, moet je dat op deze manier doen. (Parent extenden dus) Anders hoef je dit blok niet aan te spreken.#}
 {% block javascripts %}
+    {{ parent() }}
+   <script src="{{ asset('bundles/js/main.js') }}"></script>
 {% endblock %}
