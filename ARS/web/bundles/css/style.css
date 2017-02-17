@@ -1,0 +1,113 @@
+body {
+    padding-top: 50px;
+    font-size: 16px;
+}
+
+a {
+    color: #1aa4f6;
+}
+
+.noPadding {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.noPaddingLeft {
+    margin-left: -15px;
+}
+
+nav .logo {
+    background: #354051;
+}
+
+nav .logo a {
+    color: #a0abbe ;
+}
+
+nav .searchBar {
+    width: 500px;
+}
+
+nav .searchBar input {
+    border: none;
+    box-shadow: none;
+    line-height: 25px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+nav .searchBar input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+nav .searchBar i {
+    font-size: 25px;
+    vertical-align: middle;
+    color: #555;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #354051;
+    border-right: 1px solid #eee;
+}
+
+.nav-sidebar {
+    margin-right: -21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > li >a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.sideMenu ul li a {
+    color: #a0abbe;
+}
+
+.sideMenu ul li:hover, .sideMenu ul li:focus, .sideMenu ul li:active {
+    background: #2f3948;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.sideMenu ul li a:hover, .sideMenu ul li a:focus, .sideMenu ul li a:active {
+    background: none;
+}
+
+.loginTab {
+    position: fixed;
+    bottom: 0;
+}
+
+    /*
+    MAIN CONTENT
+     */
+
+.mainContent {
+    border-top: 1px solid #F5F5F5;
+}

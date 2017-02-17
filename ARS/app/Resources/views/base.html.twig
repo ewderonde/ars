@@ -11,67 +11,58 @@
     {% endblock %}
 </head>
 <body>
+<div class="wrap">
     <div class="top-bar">
-            <div class="search-bar">
-                    {% block topbar %}
-                        <nav class="navbar navbar-inverse navbar-fixed-top">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                    <a class="navbar-brand" href="#">ARS</a>
-                                </div>
-                                <div id="navbar" class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Settings</a></li>
-                                        <li><a href="#">Profile</a></li>
-                                        <li><a href="#">Help</a></li>
-                                    </ul>
-                                    <form class="navbar-form navbar-right">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                    </form>
-                                </div>
-                            </div>
-                        </nav>
-                    {% endblock %}
-            </div>
-            <div >
-                    {% block variablebuttons %}
+        <div class="search-bar">
+            {% block topbar %}
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container-fluid noPaddingLeft">
+                        <div class="navbar-header col-md-2 logo noPadding">
+                            <a class="navbar-brand" href="#">ARS</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">Toevoegen</a></li>
+                                <li><a href="#">Vrijplannen</a></li>
+                                <li><a href="#">Hamburger</a></li>
+                            </ul>
+                            <form class="navbar-form navbar-left searchBar">
+                                <i class="fa fa-search" aria-hidden="true"></i><input type="text" class="form-control" placeholder="Zoekopdracht">
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            {% endblock %}
+        </div>
+            {% block variablebuttons %}
 
-                    {% endblock %}
-            </div>
+            {% endblock %}
     </div>
 
     {%  block mainMenu %}
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="#">Export</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="">Nav item</a></li>
-                <li><a href="">Nav item again</a></li>
-                <li><a href="">One more nav</a></li>
-                <li><a href="">Another nav item</a></li>
-                <li><a href="">More navigation</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="">Nav item again</a></li>
-                <li><a href="">One more nav</a></li>
-                <li><a href="">Another nav item</a></li>
-            </ul>
-        </div>
-    {% endblock %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 sidebar sideMenu">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+                        <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Evenementen</a></li>
+                        <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Medewerkers</a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>Administratie</a></li>
+                        <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>Beheer</a></li>
+                    </ul>
+                    <ul class="loginTab nav nav-sidebar">
+                        <li>Gebruikersnaam</li>
+                        <li><a href="#">Uitloggen <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                {% endblock %}
 
-    {% block body %}
-    {% endblock %}
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+</div>
+
 
     {# include general Js files. #}
     {% include 'includes/js.html.twig' %}
