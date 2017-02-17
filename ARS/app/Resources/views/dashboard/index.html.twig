@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ test }}</h1>
+    <div class="col-md-10 col-md-offset-2 mainContent">
+        <h1>Hallo</h1>
+    </div>
 {% endblock %}
 
-{% block topbar %}
-    {{ parent() }}
-    <p>Nog een stuk teksPEOPt.</p>
-{% endblock %}
 
 {# Als je javascript of css specifieke files wilt includen op een pagina, moet je dat op deze manier doen. (Parent extenden dus) Anders hoef je dit blok niet aan te spreken.#}
 {% block javascripts %}
