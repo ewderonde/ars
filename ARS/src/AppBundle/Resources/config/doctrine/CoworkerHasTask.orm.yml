@@ -1,0 +1,20 @@
+AppBundle\Entity\CoworkerHasTask:
+    type: entity
+
+    manyToOne:
+        coworker:
+            targetEntity: AppBundle\Entity\Coworker
+            inversedBy: coworkerHasTasks
+            joinColumn:
+                name: coworker_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        task:
+            targetEntity: AppBundle\Entity\Task
+            inversedBy: coworkerHasTasks
+            joinColumn:
+                name: task_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

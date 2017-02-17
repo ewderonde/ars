@@ -1,4 +1,4 @@
-AppBundle\Entity\Coworker:
+AppBundle\Entity\EventType:
     type: entity
 
     id:
@@ -11,11 +11,13 @@ AppBundle\Entity\Coworker:
 
         fields:
             name:
-
+                column: name
+                type: string
+                length: 100
 
         oneToMany:
-            relationBanks:
-                targetEntity: AppBundle\Entity\RelationBank
-                mappedBy: bank
+            eventHasTypes:
+                targetEntity: AppBundle\Entity\EventHasType
+                mappedBy: eventType
 
     lifecycleCallbacks: {  }

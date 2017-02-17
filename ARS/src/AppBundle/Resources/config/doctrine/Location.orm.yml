@@ -1,0 +1,15 @@
+AppBundle\Entity\Location:
+    type: entity
+
+    fields:
+        location:
+            column: location
+            type: string
+            length: 100
+
+    oneToMany:
+        scheduleHasLocations:
+            targetEntity: AppBundle\Entity\ScheduleHasLocation
+            mappedBy: location
+
+    lifecycleCallbacks: {  }

@@ -3,12 +3,12 @@
 /**
  * Created by PhpStorm.
  * User: Sven de Ronde
- * Date: 16-2-2017
- * Time: 21:10
+ * Date: 17-2-2017
+ * Time: 00:21
  */
 namespace AppBundle\Entity;
 
-class Schedule
+class UserHasRole
 {
 
 }

@@ -1,0 +1,23 @@
+AppBundle\Entity\Coworker:
+    type: entity
+
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
+
+        fields:
+            name:
+                column: name
+                type: string
+                length: 60
+
+        oneToMany:
+            coworkers:
+                targetEntity: AppBundle\Entity\Coworker
+                mappedBy: coworkerType
+
+    lifecycleCallbacks: {  }

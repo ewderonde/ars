@@ -1,0 +1,27 @@
+AppBundle\Entity\Role:
+    type: entity
+
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
+
+        fields:
+            name:
+                column: name
+                type: string
+                length: 100
+            type:
+                column: type
+                type: integer
+
+
+        oneToMany:
+            userHasRoles:
+                targetEntity: AppBundle\Entity\UserHasRoles
+                mappedBy: role
+
+    lifecycleCallbacks: {  }

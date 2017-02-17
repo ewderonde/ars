@@ -1,0 +1,20 @@
+AppBundle\Entity\ScheduleHasLocation:
+    type: entity
+
+    manyToOne:
+        schedule:
+            targetEntity: AppBundle\Entity\Schedule
+            inversedBy: scheduleHasLocations
+            joinColumn:
+                name: schedule_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        location:
+            targetEntity: AppBundle\Entity\Location
+            inversedBy: scheduleHasLocations
+            joinColumn:
+                name: location_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

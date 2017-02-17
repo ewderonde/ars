@@ -1,0 +1,25 @@
+AppBundle\Entity\Task:
+    type: entity
+
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            column: name
+            type: string
+            length: 45
+
+    oneToMany:
+        schedules:
+            targetEntity: AppBundle\Entity\Schedule
+            mappedBy: task
+        coworkerHasTasks:
+            targetEntity: AppBundle\Entity\CoworkerHasTask
+            mappedBy: task
+
+    lifecycleCallbacks: {  }

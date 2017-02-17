@@ -1,0 +1,20 @@
+AppBundle\Entity\EventHasType:
+    type: entity
+
+    manyToOne:
+        event:
+            targetEntity: AppBundle\Entity\Event
+            inversedBy: eventHasTypes
+            joinColumn:
+                name: event_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        eventType:
+            targetEntity: AppBundle\Entity\EventType
+            inversedBy: eventHastypes
+            joinColumn:
+                name: event_type_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks: {  }

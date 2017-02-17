@@ -1,0 +1,46 @@
+AppBundle\Entity\Event:
+    type: entity
+
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
+
+        fields:
+            date:
+                column: date
+                type: datetime
+            timeStart:
+                column: time_start
+                type: datetime
+            timeEnd:
+                column: time_end
+                nullable: true
+                type: datetime
+            employeeStartingTime:
+                column: employee_starting_time
+                nullable: true
+                type: datetime
+            guests:
+                column: guests
+                type: integer
+            description:
+                type: text
+                nullable: true
+                length: 65535
+
+        oneToMany:
+            schedules:
+                targetEntity: AppBundle\Entity\Schedule
+                mappedBy: Event
+            eventHasTypes:
+                targetEntity: AppBundle\Entity\EventHasType
+                mappedBy: Event
+        manyToOne:
+            user:
+                targetEntity: AppBundle\Entity\User
+                mappedBy: events
+    lifecycleCallbacks: {  }

@@ -6,6 +6,8 @@
  * Date: 16-2-2017
  * Time: 22:15
  */
+namespace AppBundle\Entity;
+
 class EventHasType
 {
 

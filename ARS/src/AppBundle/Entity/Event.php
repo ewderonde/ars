@@ -6,6 +6,8 @@
  * Date: 16-2-2017
  * Time: 21:10
  */
+namespace AppBundle\Entity;
+
 class Event
 {
 
