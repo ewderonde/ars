@@ -9,7 +9,11 @@
 namespace AppBundle\Controller;
 
 
+use Symfony\Component\HttpFoundation\Response;
+
 class EventController extends BaseController
 {
-
+    public function indexAction() {
+        return new Response($this->templating->render('event/index.html.twig'));
+    }
 }

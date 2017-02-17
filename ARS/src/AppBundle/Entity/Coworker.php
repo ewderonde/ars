@@ -28,7 +28,7 @@ class Coworker
     private $lastName;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     private $dateOfBirth;
 

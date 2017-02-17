@@ -9,7 +9,11 @@
 namespace AppBundle\Controller;
 
 
+use Symfony\Component\HttpFoundation\Response;
+
 class SettingsController extends BaseController
 {
-
+    public function indexAction() {
+        return new Response($this->templating->render('settings/index.html.twig'));
+    }
 }

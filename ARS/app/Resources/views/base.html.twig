@@ -44,11 +44,11 @@
             <div class="row">
                 <div class="col-md-2 sidebar sideMenu">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
-                        <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Evenementen</a></li>
-                        <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Medewerkers</a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>Administratie</a></li>
-                        <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>Beheer</a></li>
+                        <li class="active"><a href="{{ path('dashboard_index') }}"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+                        <li><a href="{{ path('event_index') }}"><i class="fa fa-calendar" aria-hidden="true"></i>Evenementen</a></li>
+                        <li><a href="{{ path('coworker_index') }}"><i class="fa fa-users" aria-hidden="true"></i>Medewerkers</a></li>
+                        <li><a href=""><i class="fa fa-bar-chart" aria-hidden="true"></i>Administratie</a></li>
+                        <li><a href="{{ path('settings_index') }}"><i class="fa fa-cogs" aria-hidden="true"></i>Beheer</a></li>
                     </ul>
                     <ul class="loginTab nav nav-sidebar">
                         <li>Gebruikersnaam</li>
