@@ -1,9 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="col-md-10 col-md-offset-2 mainContent">
-        <h1>Dashboard</h1>
-        
+    <div class="col-md-10 col-md-offset-2 statisticsContent">
+        <div class="row">
+            <div class="col-md-12 statistics">
+                <h2>Algemene statistieken</h2>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-10 col-md-offset-2 upcomingContent">
+        <div class="row">
+            <div class="col-md-12 upcomingEvents">
+                <h2>Aankomende evenementen</h2>
+                <div class="col-md-12 eventBlock">
+                    <div class="col-md-9">
+                        <h3>Evenement 1</h3>
+                        <p>Eventsoort</p>
+                        <p>Aantal personen</p>
+                    </div>
+                    <a href="#">
+                        <div class="col-md-1 buttonColumn">
+                            <div class="eventButton text-center"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                            <p>Afronden</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="col-md-1 buttonColumn">
+                            <div class="eventButton text-center"><i class="fa fa-info" aria-hidden="true"></i></div>
+                            <p>Details</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="col-md-1 buttonColumn">
+                            <div class="eventButton text-center"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                            <p>Verwijderen</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
