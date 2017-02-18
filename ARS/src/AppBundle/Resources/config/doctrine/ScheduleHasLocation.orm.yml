@@ -1,5 +1,13 @@
 AppBundle\Entity\ScheduleHasLocation:
     type: entity
+    table: schedule_has_location
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
 
     manyToOne:
         schedule:

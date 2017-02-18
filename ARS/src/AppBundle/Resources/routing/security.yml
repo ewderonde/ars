@@ -1,0 +1,4 @@
+login:
+    path: /
+    defaults:
+        _controller: app.controller.security:loginAction

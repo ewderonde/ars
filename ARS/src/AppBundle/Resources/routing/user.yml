@@ -1,0 +1,4 @@
+register:
+    path: /
+    defaults:
+        _controller: app.controller.user:registerAction

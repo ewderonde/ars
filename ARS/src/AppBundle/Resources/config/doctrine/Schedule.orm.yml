@@ -1,6 +1,6 @@
 AppBundle\Entity\Schedule:
     type: entity
-
+    table: schedule
     id:
         id:
             type: integer
@@ -9,56 +9,56 @@ AppBundle\Entity\Schedule:
             generator:
                 strategy: AUTO
 
-        fields:
-            date:
-                column: date
-                type: datetime
-            timeStart:
-                column: time_start
-                type: datetime
-            timeEnd:
-                column: time_end
-                type: datetime
-            wage:
-                column: wage
-                type: float
-            minutes:
-                column: minutes
-                type: integer
-            dateCreated:
-                type: datetime
-                nullable: true
-                column: date_created
-            dateModified:
-                type: datetime
-                nullable: true
-                column: date_modified
+    fields:
+        date:
+            column: date
+            type: datetime
+        timeStart:
+            column: time_start
+            type: datetime
+        timeEnd:
+            column: time_end
+            type: datetime
+        wage:
+            column: wage
+            type: float
+        minutes:
+            column: minutes
+            type: integer
+        dateCreated:
+            type: datetime
+            nullable: true
+            column: date_created
+        dateModified:
+            type: datetime
+            nullable: true
+            column: date_modified
 
-        oneToMany:
-            scheduleHasLocations:
-                targetEntity: AppBundle\Entity\ScheduleHasLocation
-                mappedBy: schedule
-        oneToOne:
-            event:
-                targetEntity: AppBundle\Entity\Event
-                joinColumn:
-                    name: event_id
-                    referencedColumnName: id
-                    onDelete: SET NULL
-        manyToOne:
-            task:
-                targetEntity: AppBundle\Entity\Task
-                inversedBy: schedules
-                joinColumn:
-                    name: task_id
-                    referencedColumnName: id
-                    onDelete: SET NULL
-            coworker:
-                targetEntity: AppBundle\Entity\Coworker
-                inversedBy: schedules
-                joinColumn:
-                    name: coworker_id
-                    referencedColumnName: id
-                    onDelete: SET NULL
+    oneToMany:
+        scheduleHasLocations:
+            targetEntity: AppBundle\Entity\ScheduleHasLocation
+            mappedBy: schedule
+    oneToOne:
+        event:
+            targetEntity: AppBundle\Entity\Event
+            joinColumn:
+                name: event_id
+                referencedColumnName: id
+                onDelete: SET NULL
+    manyToOne:
+        task:
+            targetEntity: AppBundle\Entity\Task
+            inversedBy: schedules
+            joinColumn:
+                name: task_id
+                referencedColumnName: id
+                onDelete: SET NULL
+        coworker:
+            targetEntity: AppBundle\Entity\Coworker
+            inversedBy: schedules
+            joinColumn:
+                name: coworker_id
+                referencedColumnName: id
+                onDelete: SET NULL
 
     lifecycleCallbacks: {  }

@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -51,11 +52,15 @@ class BaseController extends Controller
      */
     protected $formFactory;
 
-
     /**
      * @var EngineInterface
      */
     protected $templating;
+
+    /**
+     * @var
+     */
+    protected $container;
 
     public function __construct(
         EngineInterface $templating,
@@ -64,7 +69,8 @@ class BaseController extends Controller
         TranslatorInterface $translator,
         EntityManager $em,
         RequestStack $requestStack,
-        FormFactoryInterface $formFactory
+        FormFactoryInterface $formFactory,
+        ContainerInterface $container
     ) {
         $this->templating = $templating;
         $this->formFactory = $formFactory;
@@ -73,8 +79,6 @@ class BaseController extends Controller
         $this->session = $session;
         $this->router = $router;
         $this->translator = $translator;
-
+        $this->container = $container;
     }
-
-
 }

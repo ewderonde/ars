@@ -1,6 +1,6 @@
 AppBundle\Entity\Coworker:
     type: entity
-
+    table: coworker
     id:
         id:
             type: integer
@@ -9,69 +9,69 @@ AppBundle\Entity\Coworker:
             generator:
                 strategy: AUTO
 
-        fields:
-            firstName:
-                column: first_name
-                type: string
-                length: 60
-            lastName:
-                column: last_name
-                type: string
-                length: 60
-            dateOfBirth:
-                column: date_of_birth
-                type: datetime
-            address:
-                column: address
-                type: string
-                length: 100
-            addressNumber:
-                column: address_number
-                type: string
-                length: 5
-            city:
-                column: city
-                type: string
-                length 100
-            bsn:
-                column: bsn
-                type: string
-                length: 9
-            email:
-                column: email
-                type: string
-                length: 60
-            iban:
-                column: iban
-                type: string
-                length: 18
-            wage:
-                column: wage
-                type: float
-            dateCreated:
-                type: datetime
-                nullable: true
-                column: date_created
-            dateModified:
-                type: datetime
-                nullable: true
-                column: date_modified
+    fields:
+        firstName:
+            column: first_name
+            type: string
+            length: 60
+        lastName:
+            column: last_name
+            type: string
+            length: 60
+        dateOfBirth:
+            column: date_of_birth
+            type: datetime
+        address:
+            column: address
+            type: string
+            length: 100
+        addressNumber:
+            column: address_number
+            type: string
+            length: 5
+        city:
+            column: city
+            type: string
+            length: 100
+        bsn:
+            column: bsn
+            type: string
+            length: 9
+        email:
+            column: email
+            type: string
+            length: 60
+        iban:
+            column: iban
+            type: string
+            length: 18
+        wage:
+            column: wage
+            type: float
+        dateCreated:
+            type: datetime
+            nullable: true
+            column: date_created
+        dateModified:
+            type: datetime
+            nullable: true
+            column: date_modified
 
-        oneToMany:
-            coworkerHasTasks:
-                targetEntity: AppBundle\Entity\CoworkerHasTask
-                mappedBy: coworker
-            shedules:
-                targetEntity: AppBundle\Entity\Schedule
-                mappedBy: coworker
+    oneToMany:
+        coworkerHasTasks:
+            targetEntity: AppBundle\Entity\CoworkerHasTask
+            mappedBy: coworker
+        schedules:
+            targetEntity: AppBundle\Entity\Schedule
+            mappedBy: coworker
 
-        manyToOne:
-            coworkerType:
-                targetEntity: AppBundle\Entity\CoworkerType
-                inversedBy: coworkers
-                joinColumn:
-                    name: task_id
-                    referencedColumnName: id
-                    onDelete: SET NULL
+    manyToOne:
+        coworkerType:
+            targetEntity: AppBundle\Entity\CoworkerType
+            inversedBy: coworkers
+            joinColumn:
+                name: task_id
+                referencedColumnName: id
+                onDelete: SET NULL
 
     lifecycleCallbacks: {  }

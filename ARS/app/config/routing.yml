@@ -22,3 +22,10 @@ settings:
     resource: "@AppBundle/Resources/routing/settings.yml"
     prefix: /settings
 
+security:
+    resource: "@AppBundle/Resources/routing/security.yml"
+    prefix: /login
+
+user:
+    resource: "@AppBundle/Resources/routing/user.yml"
+    prefix: /register

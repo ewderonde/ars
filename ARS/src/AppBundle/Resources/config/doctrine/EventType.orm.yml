@@ -1,6 +1,6 @@
 AppBundle\Entity\EventType:
     type: entity
-
+    table: event_type
     id:
         id:
             type: integer
@@ -9,15 +9,15 @@ AppBundle\Entity\EventType:
             generator:
                 strategy: AUTO
 
-        fields:
-            name:
-                column: name
-                type: string
-                length: 100
+    fields:
+        name:
+            column: name
+            type: string
+            length: 100
 
-        oneToMany:
-            eventHasTypes:
-                targetEntity: AppBundle\Entity\EventHasType
-                mappedBy: eventType
+    oneToMany:
+        eventHasTypes:
+            targetEntity: AppBundle\Entity\EventHasType
+            mappedBy: eventType
 
     lifecycleCallbacks: {  }

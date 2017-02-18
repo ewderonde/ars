@@ -1,6 +1,6 @@
 AppBundle\Entity\Role:
     type: entity
-
+    table: role
     id:
         id:
             type: integer
@@ -9,19 +9,19 @@ AppBundle\Entity\Role:
             generator:
                 strategy: AUTO
 
-        fields:
-            name:
-                column: name
-                type: string
-                length: 100
-            type:
-                column: type
-                type: integer
+    fields:
+        name:
+            column: name
+            type: string
+            length: 100
+        type:
+            column: type
+            type: integer
 
 
-        oneToMany:
-            userHasRoles:
-                targetEntity: AppBundle\Entity\UserHasRoles
-                mappedBy: role
+    oneToMany:
+        userHasRoles:
+            targetEntity: AppBundle\Entity\UserHasRole
+            mappedBy: role
 
     lifecycleCallbacks: {  }

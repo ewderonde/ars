@@ -1,6 +1,13 @@
 AppBundle\Entity\EventHasType:
     type: entity
-
+    table: event_has_type
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
     manyToOne:
         event:
             targetEntity: AppBundle\Entity\Event

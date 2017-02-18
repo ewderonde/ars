@@ -1,6 +1,6 @@
-AppBundle\Entity\Coworker:
+AppBundle\Entity\CoworkerType:
     type: entity
-
+    table: coworker_type
     id:
         id:
             type: integer
@@ -9,15 +9,15 @@ AppBundle\Entity\Coworker:
             generator:
                 strategy: AUTO
 
-        fields:
-            name:
-                column: name
-                type: string
-                length: 60
+    fields:
+        name:
+            column: name
+            type: string
+            length: 60
 
-        oneToMany:
-            coworkers:
-                targetEntity: AppBundle\Entity\Coworker
-                mappedBy: coworkerType
+    oneToMany:
+        coworkers:
+            targetEntity: AppBundle\Entity\Coworker
+            mappedBy: coworkerType
 
     lifecycleCallbacks: {  }

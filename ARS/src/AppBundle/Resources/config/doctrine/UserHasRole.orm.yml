@@ -1,6 +1,13 @@
-AppBundle\Entity\CoworkerHasTask:
+AppBundle\Entity\UserHasRole:
     type: entity
-
+    table: user_has_role
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
     manyToOne:
         user:
             targetEntity: AppBundle\Entity\User

@@ -1,6 +1,6 @@
 AppBundle\Entity\Task:
     type: entity
-
+    table: task
     id:
         id:
             type: integer

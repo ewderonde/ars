@@ -1,6 +1,13 @@
 AppBundle\Entity\CoworkerHasTask:
     type: entity
-
+    table: coworker_has_task
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
     manyToOne:
         coworker:
             targetEntity: AppBundle\Entity\Coworker

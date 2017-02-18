@@ -15,6 +15,7 @@ services:
         - '@doctrine.orm.entity_manager'
         - '@request_stack'
         - '@form.factory'
+        - '@service_container'
 
   app.controller.dashboard:
     class: AppBundle\Controller\DashboardController
@@ -36,6 +37,13 @@ services:
       class: AppBundle\Controller\SettingsController
       parent: app.controller.base
 
+  app.controller.security:
+      class: AppBundle\Controller\SecurityController
+      parent: app.controller.base
+
+  app.controller.user:
+      class: AppBundle\Controller\UserController
+      parent: app.controller.base
 
 #  # FORM
 #  app.form.error.form_error:

@@ -11,6 +11,11 @@ namespace AppBundle\Entity;
 class CoworkerHasTask
 {
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var Coworker
      */
     private $coworker;
@@ -54,6 +59,14 @@ class CoworkerHasTask
     public function setTask($task)
     {
         $this->task = $task;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
 

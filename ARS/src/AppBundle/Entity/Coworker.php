@@ -9,6 +9,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Coworker
 {
 
@@ -73,13 +75,32 @@ class Coworker
     private $wage;
 
     /**
+     * @var \DateTime
+     */
+    private $dateCreated;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateModified;
+
+    /**
      * @var CoworkerHasTask[]
      */
     private $coworkerHasTasks;
 
+    /**
+     * @var Schedule[];
+     */
+    private $schedules;
+
     public function __construct()
     {
+        $this->dateCreated = new \DateTime();
+        $this->dateModified = new \DateTime();
 
+        $this->coworkerHasTasks = new ArrayCollection();
+        $this->schedules = new ArrayCollection();
     }
 
     /**
@@ -280,5 +301,53 @@ class Coworker
     public function addCoworkerTask($coworkerTask)
     {
         $this->coworkerHasTasks[] = $coworkerTask;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * @param \DateTime $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateModified()
+    {
+        return $this->dateModified;
+    }
+
+    /**
+     * @param \DateTime $dateModified
+     */
+    public function setDateModified($dateModified)
+    {
+        $this->dateModified = $dateModified;
+    }
+
+    /**
+     * @return Schedule[]
+     */
+    public function getSchedules()
+    {
+        return $this->schedules;
+    }
+
+    /**
+     * @param Schedule[] $schedule
+     */
+    public function addSchedule($schedule)
+    {
+        $this->schedules[] = $schedule;
     }
 }

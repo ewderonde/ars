@@ -1,6 +1,13 @@
 AppBundle\Entity\Location:
     type: entity
-
+    table: location
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            generator:
+                strategy: AUTO
     fields:
         location:
             column: location
