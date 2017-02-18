@@ -16,15 +16,15 @@
         <div class="search-bar">
             {% block topbar %}
                 <nav class="navbar navbar-fixed-top">
-                    <div class="container-fluid noPaddingLeft">
-                        <div class="navbar-header col-md-2 logo noPadding">
+                    <div class="container-fluid noPadding">
+                        <div class="navbar-header col-md-2 col-sm-2 logo noPadding">
                             <a class="navbar-brand" href="#">ARS</a>
                         </div>
-                        <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Toevoegen</a></li>
-                                <li><a href="#">Vrijplannen</a></li>
-                                <li><a href="#">Hamburger</a></li>
+                        <div id="navbar" class="col-md-10">
+                            <ul class="nav navbar-nav navbar-right col-md-offset-2 iconBar">
+                                <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Nieuw evenement</a></li>
+                                <li><a href="#"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Medewerker vrij</a></li>
+                                <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Logboek</a></li>
                             </ul>
                             <form class="navbar-form navbar-left searchBar">
                                 <i class="fa fa-search" aria-hidden="true"></i><input type="text" class="form-control" placeholder="Zoekopdracht">
@@ -50,10 +50,12 @@
                         <li><a href=""><i class="fa fa-bar-chart" aria-hidden="true"></i>Administratie</a></li>
                         <li><a href="{{ path('settings_index') }}"><i class="fa fa-cogs" aria-hidden="true"></i>Beheer</a></li>
                     </ul>
-                    <ul class="loginTab nav nav-sidebar">
-                        <li>Gebruikersnaam</li>
-                        <li><a href="#">Uitloggen <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-                    </ul>
+                    <div class="logoutTab">
+                        <p>Gebruikersnaam</p>
+                        <ul class="nav nav-sidebar">
+                            <li><a href="#">Uitloggen <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
                 {% endblock %}
 
