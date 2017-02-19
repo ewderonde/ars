@@ -82,3 +82,10 @@ services:
           - '@translator'
       tags:
           - { name: form.type }
+
+  app.form.type.coworker:
+      class: AppBundle\Form\CoworkerType
+      arguments:
+          - '@translator'
+      tags:
+          - { name: form.type }

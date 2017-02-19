@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-10 col-md-offset-2 main-content">
+        <h3>Medewerker toevoegen</h3>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.firstName, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.firstName, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.lastName, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.lastName, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.dateOfBirth, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-4">{{ form_widget(form.dateOfBirth, {'attr': {'class': 'cols-sm-2 control-label date-of-birth'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.address, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.address, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.addressNumber, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.addressNumber, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.city, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.city, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.bsn, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.bsn, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.email, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.email, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.iban, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-4">{{ form_widget(form.iban, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="col-md-4">{{ form_label(form.wage, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                        <div class="col-md-8">{{ form_widget(form.wage, {'attr': {'class': 'cols-sm-2 control-label'}}) }}</div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <a href="{{ path('coworker_index') }}" class="btn btn-default">Annuleer</a>
+        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(".date-of-birth").datepicker({
+            yearRange: "-20:+0", // this is the option you're looking for
+            showOn: "both",
+            buttonImage: "templates/images/calendar.gif",
+            buttonImageOnly: true
+        });
+        console.log('hoi');
+    </script>
+{% endblock %}

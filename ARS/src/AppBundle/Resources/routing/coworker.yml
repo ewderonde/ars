@@ -3,3 +3,28 @@ coworker_index:
     defaults:
         _controller: app.controller.coworker:indexAction
 
+coworker_create:
+    path: /create
+    defaults:
+        _controller: app.controller.coworker:createAction
+
+coworker_read:
+    path: /{id}
+    defaults:
+        _controller: app.controller.coworker:readAction
+    requirements:
+        id: \d+
+
+coworker_edit:
+    path: /{id}/edit
+    defaults:
+        _controller: app.controller.coworker:editAction
+    requirements:
+        id: \d+
+
+coworker_delete:
+    path: /{id}/delete
+    defaults:
+        _controller: app.controller.coworker:deleteAction
+    requirements:
+        id: \d+
