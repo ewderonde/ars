@@ -9,17 +9,17 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Repository\UserRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Translation\TranslatorInterface;
-
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 class EventType extends AbstractType
 {
@@ -40,28 +40,59 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class, array(
-                'label' => 'Voornaam',
+            ->add('date', DateType::class, array(
+                'label' => 'Datum',
                 'attr' => array('minlength' => 2),
                 'required' => true,
             ))
-            ->add('lastName', TextType::class, array(
-                'label' => 'Achternaam',
-                'attr' => array('minlength' => 2),
+            ->add('timeStart', TimeType::class, array(
+                'label' => 'Start tijd',
+                'widget' => 'single_text',
+                'input' => 'array',
+                'required' => true,
+                'html5' => false,
+                'mapped' => false,
+                'with_seconds' => false,
+                'attr' => array('class' => 'form-control', 'required' => true),
+            ))
+            ->add('timeEnd', TimeType::class, array(
+                'label' => 'Eind tijd',
+                'widget' => 'single_text',
+                'input' => 'array',
+                'required' => false,
+                'html5' => false,
+                'mapped' => false,
+                'with_seconds' => false,
+                'attr' => array('class' => 'form-control'),
+            ))
+            ->add('employeeStartingTime', TimeType::class, array(
+                'label' => 'Aanvang Medewerkers',
+                'widget' => 'single_text',
+                'input' => 'array',
+                'required' => false,
+                'html5' => false,
+                'mapped' => false,
+                'with_seconds' => false,
+                'attr' => array('class' => 'form-control'),
+            ))
+            ->add('guests', TextType::class, array(
+                'label' => 'Aantal gasten',
                 'required' => true,
             ))
-            ->add('email', EmailType::class, [
-                'label' => 'Emailadres',
+            ->add('description', TextareaType::class, array(
+                'label' => 'Aantal gasten',
                 'required' => true,
-            ])
-            ->add('password', RepeatedType::class, array(
-                'type' => PasswordType::class,
-                'invalid_message' => 'De wachtwoorden komen niet overeen',
-                'options' => array('attr' => array('class' => 'password-field')),
+            ))
+            ->add('manager', EntityType::class, array(
+                'label' => 'Beheerder',
+                'class' => 'AppBundle:User',
+                'attr' => array('title' => 'Kies een manager.', 'class' => 'form-control'),
                 'required' => true,
-                'first_options'  => array('label' => 'Wachtwoord'),
-                'second_options' => array('label' => 'Herhaal Wachtwoord'),
-                'mapped' => false
+                'query_builder' => function (UserRepository $u) {
+                    // get all relations.
+                    $qb = $u->getAllUsers();
+                    return $qb;
+                }
             ))
             ->add('submit', SubmitType::class, [
                 'label' => 'Opslaan',

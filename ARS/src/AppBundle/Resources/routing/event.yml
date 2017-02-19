@@ -3,3 +3,28 @@ event_index:
     defaults:
         _controller: app.controller.event:indexAction
 
+event_create:
+    path: /create
+    defaults:
+        _controller: app.controller.event:createAction
+
+event_read:
+    path: /{id}
+    defaults:
+        _controller: app.controller.event:readAction
+    requirements:
+        id: \d+
+
+event_edit:
+    path: /{id}/edit
+    defaults:
+        _controller: app.controller.event:editAction
+    requirements:
+        id: \d+
+
+event_delete:
+    path: /{id}/delete
+    defaults:
+        _controller: app.controller.event:deleteAction
+    requirements:
+        id: \d+

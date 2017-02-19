@@ -82,3 +82,10 @@ services:
           - '@translator'
       tags:
           - { name: form.type }
+
+  app.form.type.event:
+      class: AppBundle\Form\EventType
+      arguments:
+          - '@translator'
+      tags:
+          - { name: form.type }

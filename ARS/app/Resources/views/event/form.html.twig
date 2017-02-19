@@ -1,5 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    
+    <div class="col-md-10 col-md-offset-2 main-content">
+        <h3>Evenement toevoegen</h3>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
+            <div class="col-md-6">
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Datum</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}</div>
+                    </fieldset>
+                </div>
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Start tijd</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.timeStart, {'attr': {'class': 'form-control' }}) }}</div>
+                    </fieldset>
+                </div>
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Eind tijd</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.timeEnd, {'attr': {'class': 'form-control'}}) }}</div>
+                    </fieldset>
+                </div>
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Aanvang Personeel</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.employeeStartingTime, {'attr': {'class': 'form-control'}}) }}</div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Aantal gasten</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.guests, {'attr': {'class': 'form-control'}}) }}</div>
+                    </fieldset>
+                </div>
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Beschrijving</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}</div>
+                    </fieldset>
+                </div>
+                <div class="info-group">
+                    <fieldset class="form-group">
+                        <div class="col-md-4"><strong>Beheerder evenement</strong></div>
+                        <div class="col-md-8">{{ form_widget(form.manager, {'attr': {'class': 'form-control'}}) }}</div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row col-md-6 col-md-offset-6">
+                <div clas="pull-right">
+                    <a href="{{ path('event_index') }}" class="btn btn-default">Annuleer</a>
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success'}}) }}
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

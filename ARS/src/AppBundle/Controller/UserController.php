@@ -41,11 +41,11 @@ class UserController extends BaseController
             // Insert object into database. (Create user row)
             $this->em->flush();
 
-            // Add Flash message.
-            $this->addFlash(
-                'message',
-                'Uw Account is aangemaakt!'
-            );
+//            // Add Flash message.
+//            $this->addFlash(
+//                'message',
+//                'Uw Account is aangemaakt!'
+//            );
             return new RedirectResponse($this->router->generate('register_success', array(
             )));
         }

@@ -55,6 +55,11 @@ class User implements UserInterface, Serializable
         $this->userHasRoles = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->firstName . ' '. $this->lastName;
+    }
+
     /**
      * @return int
      */
