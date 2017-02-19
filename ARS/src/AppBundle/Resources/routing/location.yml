@@ -1,0 +1,30 @@
+location_index:
+    path: /
+    defaults:
+        _controller: app.controller.location:indexAction
+
+location_create:
+    path: /create
+    defaults:
+        _controller: app.controller.location:createAction
+
+location_read:
+    path: /{id}
+    defaults:
+        _controller: app.controller.location:readAction
+    requirements:
+        id: \d+
+
+location_edit:
+    path: /{id}/edit
+    defaults:
+        _controller: app.controller.location:editAction
+    requirements:
+        id: \d+
+
+location_delete:
+    path: /{id}/delete
+    defaults:
+        _controller: app.controller.location:deleteAction
+    requirements:
+        id: \d+

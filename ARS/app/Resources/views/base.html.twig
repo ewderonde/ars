@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="ICT-DEAL">
+    <title>Alcazar Roostersysteem</title>
     {# Als je javascript or css specifieke files wilt includen op een pagina, moet je de het block extenden met {{ parent() }} omdat je anders het hele blok overschrijft.
     {# Anders hoef je dit blok niet aan te spreken in andere templates.#}
     {# Voorbeeld:  <script src="{{ asset('bundles/js/main.js') }}"></script> voor JS of  <link href="{{ asset('bundles/css/style.css') }}" rel="stylesheet" />#}
@@ -11,60 +17,63 @@
     {% endblock %}
 </head>
 <body>
-<div class="wrap">
-    <div class="top-bar">
-        <div class="search-bar">
-            {% block topbar %}
-                <nav class="navbar navbar-fixed-top">
-                    <div class="container-fluid noPadding">
-                        <div class="navbar-header col-md-2 col-sm-2 logo noPadding">
-                            <a class="navbar-brand" href="{{ path('dashboard_index') }}">Alcazar Rooster Systeem</a>
+    <div class="wrap">
+        <div class="top-bar">
+            <div class="search-bar">
+                {% block topbar %}
+                    <nav class="navbar navbar-fixed-top">
+                        <div class="container-fluid noPadding">
+                            <div class="navbar-header col-md-2 col-sm-2 logo noPadding">
+                                <a class="navbar-brand" href="{{ path('dashboard_index') }}">Alcazar Rooster Systeem</a>
+                            </div>
+                            <div id="navbar" class="col-md-10">
+                                <ul class="nav navbar-nav navbar-right col-md-offset-2 iconBar">
+                                    <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Nieuw evenement</a></li>
+                                    <li><a href="#"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Medewerker vrij</a></li>
+                                    <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Logboek</a></li>
+                                </ul>
+                                <form class="navbar-form navbar-left searchBar">
+                                    <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Zoekopdracht">
+                                </form>
+                            </div>
                         </div>
-                        <div id="navbar" class="col-md-10">
-                            <ul class="nav navbar-nav navbar-right col-md-offset-2 iconBar">
-                                <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Nieuw evenement</a></li>
-                                <li><a href="#"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Medewerker vrij</a></li>
-                                <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Logboek</a></li>
-                            </ul>
-                            <form class="navbar-form navbar-left searchBar">
-                                <i class="fa fa-search" aria-hidden="true"></i><input type="text" placeholder="Zoekopdracht">
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-            {% endblock %}
-        </div>
-            {% block variablebuttons %}
-
-            {% endblock %}
-    </div>
-
-    {%  block mainMenu %}
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2 sidebar sideMenu">
-                    <ul class="nav nav-sidebar">
-                        <li class="active"><a href="{{ path('dashboard_index') }}"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
-                        <li><a href="{{ path('event_index') }}"><i class="fa fa-calendar" aria-hidden="true"></i>Evenementen</a></li>
-                        <li><a href="{{ path('coworker_index') }}"><i class="fa fa-users" aria-hidden="true"></i>Medewerkers</a></li>
-                        <li><a href=""><i class="fa fa-bar-chart" aria-hidden="true"></i>Administratie</a></li>
-                        <li><a href="{{ path('settings_index') }}"><i class="fa fa-cogs" aria-hidden="true"></i>Beheer</a></li>
-                    </ul>
-                    <div class="logoutTab">
-                        <p>Gebruikersnaam</p>
-                        <ul class="nav nav-sidebar">
-                            <li><a href="#">Uitloggen <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                {% endblock %}
-
-                {% block body %}
+                    </nav>
                 {% endblock %}
             </div>
-        </div>
-</div>
+                {% block variablebuttons %}
 
+                {% endblock %}
+        </div>
+
+        {%  block mainMenu %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 sidebar sideMenu">
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="{{ path('dashboard_index') }}"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+                            <li><a href="{{ path('event_index') }}"><i class="fa fa-calendar" aria-hidden="true"></i>Evenementen</a></li>
+                            <li><a href="{{ path('coworker_index') }}"><i class="fa fa-users" aria-hidden="true"></i>Medewerkers</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>Administratie</a></li>
+                            <li><a href="{{ path('settings_index') }}"><i class="fa fa-cogs" aria-hidden="true"></i>Beheer</a></li>
+                        </ul>
+                        <div class="logoutTab">
+                            <p>{% if app.user|default %}{{ app.user.fullName }} {% endif %}</p>
+                            <ul class="nav nav-sidebar">
+                                <li><a href="{{ path('logout') }}">Uitloggen <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endblock %}
+
+                    {# Flash messages #}
+                    {% block messages %}
+                    {% endblock %}
+
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+    </div>
 
     {# include general Js files. #}
     {% include 'includes/js.html.twig' %}

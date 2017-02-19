@@ -16,4 +16,16 @@ class EventController extends BaseController
     public function indexAction() {
         return new Response($this->templating->render('event/index.html.twig'));
     }
+
+    public function createAction() {
+        return new Response($this->templating->render('event/form.html.twig'));
+    }
+
+    public function editAction() {
+        return new Response($this->templating->render('event/form.html.twig'));
+    }
+
+    public function deleteAction() {
+        return new Response($this->templating->render('event/index.html.twig'));
+    }
 }

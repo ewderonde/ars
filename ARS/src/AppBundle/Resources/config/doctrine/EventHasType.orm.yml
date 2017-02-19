@@ -18,7 +18,7 @@ AppBundle\Entity\EventHasType:
                 onDelete: CASCADE
         eventType:
             targetEntity: AppBundle\Entity\EventType
-            inversedBy: eventHastypes
+            inversedBy: eventHasTypes
             joinColumn:
                 name: event_type_id
                 referencedColumnName: id

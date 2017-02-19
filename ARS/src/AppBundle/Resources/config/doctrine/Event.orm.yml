@@ -35,12 +35,16 @@ AppBundle\Entity\Event:
     oneToMany:
         schedules:
             targetEntity: AppBundle\Entity\Schedule
-            mappedBy: Event
+            mappedBy: event
         eventHasTypes:
             targetEntity: AppBundle\Entity\EventHasType
-            mappedBy: Event
+            mappedBy: event
     manyToOne:
         manager:
             targetEntity: AppBundle\Entity\User
-            mappedBy: events
+            inversedBy: events
+            joinColumn:
+                name: manager_id
+                referenceColumnName: id
+                onDelete: SET NULL
     lifecycleCallbacks: {  }

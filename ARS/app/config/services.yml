@@ -16,6 +16,9 @@ services:
         - '@request_stack'
         - '@form.factory'
         - '@service_container'
+        - '@security.authentication_utils'
+        - '@security.token_storage'
+        - '@security.authorization_checker'
 
   app.controller.dashboard:
     class: AppBundle\Controller\DashboardController
@@ -45,8 +48,37 @@ services:
       class: AppBundle\Controller\UserController
       parent: app.controller.base
 
-#  # FORM
-#  app.form.error.form_error:
-#          class: AppBundle\Form\Error\FormError
-#          arguments:
-#              - '@translator'
+  app.controller.task:
+      class: AppBundle\Controller\TaskController
+      parent: app.controller.base
+
+  app.controller.location:
+      class: AppBundle\Controller\LocationController
+      parent: app.controller.base
+
+  # FORM
+  app.form.error.form_error:
+      class: AppBundle\Form\Error\FormError
+      arguments:
+          - '@translator'
+
+  app.form.type.user:
+      class: AppBundle\Form\UserType
+      arguments:
+          - '@translator'
+      tags:
+          - { name: form.type }
+
+  app.form.type.task:
+      class: AppBundle\Form\TaskType
+      arguments:
+          - '@translator'
+      tags:
+          - { name: form.type }
+
+  app.form.type.location:
+      class: AppBundle\Form\LocationType
+      arguments:
+          - '@translator'
+      tags:
+          - { name: form.type }

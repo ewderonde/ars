@@ -38,13 +38,7 @@ AppBundle\Entity\Schedule:
         scheduleHasLocations:
             targetEntity: AppBundle\Entity\ScheduleHasLocation
             mappedBy: schedule
-    oneToOne:
-        event:
-            targetEntity: AppBundle\Entity\Event
-            joinColumn:
-                name: event_id
-                referencedColumnName: id
-                onDelete: SET NULL
+
     manyToOne:
         task:
             targetEntity: AppBundle\Entity\Task
@@ -58,6 +52,14 @@ AppBundle\Entity\Schedule:
             inversedBy: schedules
             joinColumn:
                 name: coworker_id
+                referencedColumnName: id
+                onDelete: SET NULL
+
+        event:
+            targetEntity: AppBundle\Entity\Event
+            inversedBy: schedules
+            joinColumn:
+                name: event_id
                 referencedColumnName: id
                 onDelete: SET NULL
 

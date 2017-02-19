@@ -1,7 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="col-md-10 col-md-offset-2 mainContent">
+    <div class="col-md-10 col-md-offset-2 main-content">
+        {# Flash messages #}
+        {% block messages %}
+            {% for flash_message in app.session.flashBag.get('message') %}
+                <div class="alert alert-success col-md-10 col-md-offset-2">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+        {% endblock %}
+
         <h1>Evenementen</h1>
     </div>
 {% endblock %}

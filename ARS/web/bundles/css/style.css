@@ -150,6 +150,14 @@ nav .searchBar i {
     /*
     MAIN CONTENT
      */
+.main-content {
+    border-top: 1px solid #d3dae2;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: auto;
+    padding-bottom: 50px;
+    text-align: left;
+}
 
 .statisticsContent, .upcomingContent {
     border-top: 1px solid #d3dae2;

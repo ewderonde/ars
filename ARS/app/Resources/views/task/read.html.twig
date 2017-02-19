@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-10 col-md-offset-2 main-content" xmlns="http://www.w3.org/1999/html">
+        <h2>Details</h2>
+        <a href="{{ path('task_index') }}">Terug naar overzicht</a>
+        <div class="col-md-6">
+            <div class="info-group">
+                <fieldset class="form-group">
+                    <div class="col-md-4"><strong>Naam</strong></div>
+                    <div class="col-md-8">{{ task.name}}</div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <div class="col-md-4"><strong>Omschrijving</strong></div>
+                    <div class="col-md-8">{{ task.description }}</div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}

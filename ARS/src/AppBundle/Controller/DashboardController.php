@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 class DashboardController extends BaseController
 {
     public function indexAction() {
-        $test = 'Hallo casper';
-        return new Response($this->templating->render('dashboard/index.html.twig' , ['test' => $test ] ));
+        return new Response($this->templating->render('dashboard/index.html.twig'));
     }
 }

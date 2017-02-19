@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-10 col-md-offset-2 main-content" xmlns="http://www.w3.org/1999/html">
+            {# Flash messages #}
+            {% block messages %}
+                {% for flash_message in app.session.flashBag.get('message') %}
+                    <div class="alert alert-success col-md-10 col-md-offset-2">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        {{ flash_message }}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+
+            <div class="col-md-8"><h2 class="pull-left">Functies</h2></div>
+        <a href="{{ path('task_create') }}" class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Functie Toevoegen</a>
+        {% if tasks|length > 0 %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Naam</th>
+                        <th>Omschrijving</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.name }}</td>
+                            <td>{{ task.description }}</td>
+                            <td class="text-right text-nowrap">
+                                <a href="{{ path('task_read', {'id': task.id }) }}"><button class="btn btn-xs btn-default"><i class="fa fa-info" aria-hidden="true"></i></i></button></a>
+                                <a href="{{ path('task_edit', {'id': task.id }) }}"><button class="btn btn-xs btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                <a href="{{ path('task_delete', {'id': task.id} ) }}"><button class="btn btn-xs btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Er zijn geen functies.</p>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -29,3 +29,11 @@ security:
 user:
     resource: "@AppBundle/Resources/routing/user.yml"
     prefix: /register
+
+task:
+    resource: "@AppBundle/Resources/routing/task.yml"
+    prefix: /tasks
+
+location:
+    resource: "@AppBundle/Resources/routing/location.yml"
+    prefix: /locations

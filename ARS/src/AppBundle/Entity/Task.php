@@ -23,6 +23,11 @@ class Task
     private $name;
 
     /**
+     * @var string
+     */
+    private $description;
+
+    /**
      * @var Schedule[]
      */
     private $schedules;
@@ -92,5 +97,21 @@ class Task
     public function addCoworkerHasTask($coworkerHasTask)
     {
         $this->coworkerHasTasks = $coworkerHasTask;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }

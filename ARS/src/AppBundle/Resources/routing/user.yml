@@ -2,3 +2,8 @@ register:
     path: /
     defaults:
         _controller: app.controller.user:registerAction
+
+register_success:
+    path: /success
+    defaults:
+        _controller: app.controller.user:registerSuccessAction

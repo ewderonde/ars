@@ -1,9 +1,83 @@
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Gebruikersnaam:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+{% include 'includes/header.html.twig' %}
+<link href="{{ asset('bundles/css/register.css') }}" rel="stylesheet" />
 
-    <label for="password">Wachtwoord:</label>
-    <input type="password" id="password" name="_password" />
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Alcazar Roostersysteem</h1>
+                <hr />
+            </div>
+        </div>
+        <div class="main-login main-center">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
+                <div class="form-group">
+                    {{ form_label(form.firstName, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            {{ form_widget(form.firstName, {'attr': {'class': 'form-control', 'placeholder': 'Vul hier uw voornaam in'}}) }}
+                        </div>
+                    </div>
+                </div>
 
-    <button type="submit">login</button>
-</form>
+                <div class="form-group">
+                    {{ form_label(form.lastName, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            {{ form_widget(form.lastName, {'attr': {'class': 'form-control', 'placeholder': 'Vul hier uw achternaam in'}}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.email, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Vul hier uw emailadres in'}}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.password.first, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'Vul hier uw emailadres in'}}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.password.second, null, {'label_attr': {'class': 'cols-sm-2 control-label'}}) }}
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Vul hier uw emailadres in'}}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-lg btn-block'}}) }}
+                </div>
+                <div class="login-register">
+                    <a href="{{ path('login') }}">Inloggen</a>
+                </div>
+                <div class="login-register">
+                    {% if error|default %}
+                        <div class="alert alert-danger">
+                            {{ error.message|trans([], 'security') }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% if error|default %}<p>{{ error }}</p> {% endif %}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+{% include 'includes/js.html.twig' %}

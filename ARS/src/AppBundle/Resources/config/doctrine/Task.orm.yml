@@ -13,6 +13,9 @@ AppBundle\Entity\Task:
             column: name
             type: string
             length: 45
+        description:
+            column: description
+            type: text
 
     oneToMany:
         schedules:

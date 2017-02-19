@@ -1,0 +1,30 @@
+task_index:
+    path: /
+    defaults:
+        _controller: app.controller.task:indexAction
+
+task_create:
+    path: /create
+    defaults:
+        _controller: app.controller.task:createAction
+
+task_read:
+    path: /{id}
+    defaults:
+        _controller: app.controller.task:readAction
+    requirements:
+        id: \d+
+
+task_edit:
+    path: /{id}/edit
+    defaults:
+        _controller: app.controller.task:editAction
+    requirements:
+        id: \d+
+
+task_delete:
+    path: /{id}/delete
+    defaults:
+        _controller: app.controller.task:deleteAction
+    requirements:
+        id: \d+
