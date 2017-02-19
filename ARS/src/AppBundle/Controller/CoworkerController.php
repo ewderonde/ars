@@ -40,7 +40,7 @@ class CoworkerController extends BaseController
             $this->em->flush();
 
             // Set flash message.
-            $this->addFlash('message', 'De functie is aangemaakt!');
+            $this->addFlash('message', 'De medewerker is aangemaakt!');
 
             return new RedirectResponse($this->router->generate('coworker_index'));
         } else {
@@ -90,7 +90,7 @@ class CoworkerController extends BaseController
         $this->em->remove($coworker);
         $this->em->flush();
 
-        $this->addFlash('message', 'De functie is verwijderd!');
+        $this->addFlash('message', 'De medewerker is verwijderd!');
         return new RedirectResponse($this->router->generate('coworker_index'));
     }
 }
