@@ -2,21 +2,20 @@
 
 {% block body %}
     <div class="col-md-10 col-md-offset-2 main-content" xmlns="http://www.w3.org/1999/html">
-        {# Flash messages #}
-        {% block messages %}
-            {% for flash_message in app.session.flashBag.get('message') %}
-                <div class="alert alert-success col-md-10 col-md-offset-2">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                    {{ flash_message }}
-                </div>
-            {% endfor %}
-        {% endblock %}
-        <div class="row">
-            <div class="col-md-8"><h2 class="pull-left">Locaties</h2></div>
-            <a href="{{ path('location_create') }}" class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Locatie Toevoegen</a>
-        </div>
+            {# Flash messages #}
+            {% block messages %}
+                {% for flash_message in app.session.flashBag.get('message') %}
+                    <div class="alert alert-success col-md-10 col-md-offset-2">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        {{ flash_message }}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+
+        <div class="col-md-8"><h2 class="pull-left">Locaties</h2></div>
+        <a href="{{ path('location_create') }}" class="btn btn-success pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Functie Toevoegen</a>
         {% if locations|length > 0 %}
-            <table class="table table-hover col-md-6">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Naam</th>
@@ -37,7 +36,7 @@
                 </tbody>
             </table>
         {% else %}
-            <p class="row">Er zijn geen locaties.</p>
+            <p>Er zijn geen functies.</p>
         {% endif %}
 
     </div>

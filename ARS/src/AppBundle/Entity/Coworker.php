@@ -111,6 +111,10 @@ class Coworker
         return $this->id;
     }
 
+    public function getFullName() {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
     /**
      * @return string
      */

@@ -1,5 +1,23 @@
-{% include 'includes/header.html.twig' %}
-<link href="{{ asset('bundles/css/register.css') }}" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="ICT-DEAL">
+    <title>Alcazar Roostersysteem</title>
+    {# Als je javascript or css specifieke files wilt includen op een pagina, moet je de het block extenden met {{ parent() }} omdat je anders het hele blok overschrijft.
+    {# Anders hoef je dit blok niet aan te spreken in andere templates.#}
+    {# Voorbeeld:  <script src="{{ asset('bundles/js/main.js') }}"></script> voor JS of  <link href="{{ asset('bundles/css/style.css') }}" rel="stylesheet" />#}
+    {# Dit path verwijst naar de /web folder. (/web/bundles/js of css )#}
+    {% block styles %}
+        {# include css files. #}
+        {% include 'includes/header.html.twig' %}
+        <link href="{{ asset('bundles/css/register.css') }}" rel="stylesheet" />
+    {% endblock %}
+</head>
+<body>
 
 <div class="container">
     <div class="row main">
@@ -22,3 +40,5 @@
 </div>
 
 {% include 'includes/js.html.twig' %}
+</body>
+</html>
